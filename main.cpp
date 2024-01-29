@@ -44,23 +44,27 @@ void drawSquare(int length) {
     drawRectangle(length, length);
 }
 
-void drawTriangle(int height = 5) {
+void drawTriangle(int height) {
     //count num of asterisks i need to print this line
     //start at 1, end when height row num is reached
-    char space = ' ';
+    int numSpaces = 1;
 
     //print top to bottom
     //iterate row
-    for (int i = 0; i < height; i++) {
-
-        //print spaces before the asterisks
-        for (int j = (height - 1) / 2; j > height; j--) {
-            cout << space;
+    for(int i = 1, j = 0; i <= height; i++, j = 0) {
+        //print spaces
+        for(numSpaces = 1; numSpaces <= height - i; numSpaces++) {
+            cout <<"  ";
         }
 
-        //printing asterisks
-        for (int k = i; k >= i; k++) {
-            cout << "*";
+        //print asterisks
+        //i * row - 1 to get the num of asterisks, provides odd number to count up to
+        while(j != ((2 * i) - 1)) {
+            cout << "* ";
+            j++;
         }
+
+        //print next line
+        cout << endl;
     }
 }
